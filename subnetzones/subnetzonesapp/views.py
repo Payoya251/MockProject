@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .models import subnetmodel
+from .serializers import subnetserializer
 
-# Create your views here.
+class subnetzoneview(generics.ListCreateAPIView):
+    queryset = subnetmodel.objects.all()
+    serializer_class = subnetserializer
